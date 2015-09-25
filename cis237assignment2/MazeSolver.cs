@@ -20,6 +20,12 @@ namespace cis237assignment2
         char[,] maze;
         int xStart;
         int yStart;
+        const int maze_size = 12;
+        static int[] allowed_move_row = { 0, -1, 0, 1 };
+        static int[] allowed_move_col = { 1, 0, -1, 0 };
+        const int max_moves = 4;
+        
+
 
         /// <summary>
         /// Default Constuctor to setup a new maze solver.
@@ -40,7 +46,16 @@ namespace cis237assignment2
             //The variables are assigned so they can be used anywhere they are needed within this class. 
             this.maze = maze;
             this.xStart = xStart;
-            this.yStart = yStart;
+            this.yStart = yStart;           
+           
+            
+
+
+            if (mazeTraversal(xStart, yStart, 'X'))
+                Print(maze);
+            else
+                Console.WriteLine("No Result");
+
 
             //Do work needed to use mazeTraversal recursive call and solve the maze.
         }
@@ -51,9 +66,55 @@ namespace cis237assignment2
         /// Feel free to change the return type if you like, or pass in parameters that you might need.
         /// This is only a very small starting point.
         /// </summary>
-        private void mazeTraversal()
+        private bool mazeTraversal(int prev_row, int prev_col, char x_mark)
         {
-            //Implement maze traversal recursive call
+            for (int i = 0; i < max_moves; i++)
+            {
+                int col = prev_col + allowed_move_col[i];
+                int row = prev_row + allowed_move_row[i];
+                if (col < 0 || col >= maze_size)
+                    continue;
+                if (row < 0 || row >= maze_size)
+                    continue;
+
+                if (maze[row, col] == 'E')
+                {
+                    maze[row, col] = x_mark;
+                    return true;
+                }
+                if (maze[row, col] != '.')
+                    continue;
+                if (maze[row, col] == 'X')
+                {
+                    maze[row, col] = '0';
+                    continue;
+                }
+
+                maze[row, col] = x_mark;
+
+                if (mazeTraversal(row, col, x_mark))
+                    return true;
+                else maze[row, col] = '0';
+            }
+            return false;
         }
+            //Implement maze traversal recursive call        
+
+        public void Print(char[,] maze)
+        {
+            Console.WriteLine();
+            for (int i = 0; i < maze.GetLength(0); i++)                
+            {
+                for (int j = 0; j < maze.GetLength(1); j++)
+                {
+                    Console.Write(" " + string.Format("{0,3}", maze[i, j] + " "));
+                }
+                Console.WriteLine();
+                Console.WriteLine();
+            }
+            
+        }
+
+
     }
 }
