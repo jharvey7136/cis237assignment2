@@ -9,10 +9,6 @@ namespace cis237assignment2
     class Program
     {
 
-        char[,] maze3 = new char[11, 11];
-
-
-
         /// <summary>
         /// This is the main entry point for the program.
         /// You are free to add anything else you would like to this program,
@@ -26,9 +22,6 @@ namespace cis237assignment2
             Console.BufferHeight = 100;
             Console.BufferWidth = 100;
             Console.SetWindowSize(windowwidth, windowheight);
-            
-
-
 
             /// <summary>
             /// Starting Coordinates.
@@ -130,19 +123,17 @@ namespace cis237assignment2
         /// <returns>transposedMaze</returns>
         static char[,] transposeMaze(char[,] mazeToTranspose)
         {
+            char[,] transposed = new char[mazeToTranspose.GetLength(0), mazeToTranspose.GetLength(1)];
             
             for (int i = 0; i < mazeToTranspose.GetLength(0); i++)
             {
                 for (int j = 0; j < mazeToTranspose.GetLength(1); j++)
                 {
-                    mazeToTranspose[i,j] = mazeToTranspose[j, i];
+                    transposed[j, i] = mazeToTranspose[i, j];
                 }
-                
             }
-
-
-            //Write code her to create a transposed maze.
-            return new char[1, 1];
+            return transposed;
+            //Write code her to create a transposed maze.            
         }
     }
 }

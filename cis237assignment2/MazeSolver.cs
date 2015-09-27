@@ -46,10 +46,7 @@ namespace cis237assignment2
             //The variables are assigned so they can be used anywhere they are needed within this class. 
             this.maze = maze;
             this.xStart = xStart;
-            this.yStart = yStart;           
-           
-            
-
+            this.yStart = yStart;
 
             if (mazeTraversal(xStart, yStart, 'X'))
                 Print(maze);
@@ -111,10 +108,7 @@ namespace cis237assignment2
                 }
                 Console.WriteLine();
                 Console.WriteLine();
-            }
-            
+            }            
         }
-
-
     }
 }
