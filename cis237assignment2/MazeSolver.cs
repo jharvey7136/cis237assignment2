@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+//John Harvey - Assignment 2 - CIS237 - Due 10/6/15
+
 namespace cis237assignment2
 {
     /// <summary>
@@ -91,6 +93,7 @@ namespace cis237assignment2
 
                 maze[row, col] = x_mark;
 
+                //here is the recursion that keeps the loop active until the maze reaches the end.
                 if (mazeTraversal(row, col, x_mark))
                     return true;
                 else maze[row, col] = '0';

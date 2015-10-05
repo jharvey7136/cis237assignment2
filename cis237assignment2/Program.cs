@@ -4,6 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
+//John Harvey - Assignment 2 - CIS237 - Due 10/6/15
+
+
 namespace cis237assignment2
 {
     class Program
