@@ -63,6 +63,8 @@ namespace cis237assignment2
         /// Feel free to change the return type if you like, or pass in parameters that you might need.
         /// This is only a very small starting point.
         /// </summary>
+        /// 
+        //bool method used to check for possible moves
         private bool mazeTraversal(int prev_row, int prev_col, char x_mark)
         {
             for (int i = 0; i < max_moves; i++)
@@ -73,7 +75,7 @@ namespace cis237assignment2
                     continue;
                 if (row < 0 || row >= maze_size)
                     continue;
-
+                //had to change the ending point in the maze to an E so it knows when to end. Couldnt figure out how to use the value of an array index.
                 if (maze[row, col] == 'E')
                 {
                     maze[row, col] = x_mark;
@@ -96,7 +98,7 @@ namespace cis237assignment2
             return false;
         }
             //Implement maze traversal recursive call        
-
+        //method used to print maze
         public void Print(char[,] maze)
         {
             Console.WriteLine();

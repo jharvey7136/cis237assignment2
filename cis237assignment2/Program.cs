@@ -50,6 +50,7 @@ namespace cis237assignment2
             { '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#' }
             };
 
+            //made another maze to avoid transposed mazed already being solved
             char[,] maze1orig = 
             { 
             { '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#', '#' },
@@ -121,6 +122,8 @@ namespace cis237assignment2
         /// </summary>
         /// <param name="mazeToTranspose"></param>
         /// <returns>transposedMaze</returns>
+        /// 
+        //method to transpose the maze copy 
         static char[,] transposeMaze(char[,] mazeToTranspose)
         {
             char[,] transposed = new char[mazeToTranspose.GetLength(0), mazeToTranspose.GetLength(1)];
